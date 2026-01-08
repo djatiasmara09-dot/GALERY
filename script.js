@@ -4,7 +4,14 @@ let images = JSON.parse(localStorage.getItem("galleryImages")) || [];
 
 // tampilkan foto saat halaman dibuka
 window.onload = function () {
-    images.forEach(src => addImageToGallery(src));
+    images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.style.width = "180px";
+        img.style.margin = "10px";
+        img.style.borderRadius = "10px";
+        gallery.appendChild(img);
+    });
 };
 
 function addImage() {
@@ -21,18 +28,14 @@ function addImage() {
     reader.onload = function(e) {
         images.push(e.target.result);
         localStorage.setItem("galleryImages", JSON.stringify(images));
-        addImageToGallery(e.target.result);
+
+        const img = document.createElement("img");
+        img.src = e.target.result;
+        img.style.width = "180px";
+        img.style.margin = "10px";
+        img.style.borderRadius = "10px";
+        gallery.appendChild(img);
     };
 
     reader.readAsDataURL(file);
-}
-
-// fungsi untuk menampilkan foto
-function addImageToGallery(src) {
-    const img = document.createElement("img");
-    img.src = src;
-    img.style.width = "180px";
-    img.style.margin = "10px";
-    img.style.borderRadius = "10px";
-    gallery.appendChild(img);
 }
