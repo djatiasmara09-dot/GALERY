@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeri Foto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>📸 Galeri Foto Saya</h1>
+<p id="counter">Total Foto: 0</p>
+
+<div class="upload-box">
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="addImage()">Tambah Foto</button>
+</div>
+
+<div class="drop-area" id="dropArea">
+    <p>⬇️ Drag & Drop Foto di sini</p>
+</div>
+
+<div class="gallery" id="gallery"></div>
+
+<!-- Modal Preview -->
+<div class="modal" id="modal">
+    <span class="close" onclick="closeModal()">×</span>
+    <img id="modalImg">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
